@@ -1,0 +1,63 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+syntax enable
+set background=dark
+colorscheme solarized
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+
+Plug 'vim-airline/vim-airline'
+
+Plug 'tpope/vim-eunuch'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-surround'
+
+Plug 'majutsushi/tagbar'
+
+Plug 'Yggdroot/indentline'
+
+" Initialize plugin system
+call plug#end()
+
+let g:NERDAltDelims_c = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+
+let g:indentLine_enabled = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2
+set smarttab number clipboard=unnamedplus laststatus=2
+set noshowmode incsearch hlsearch undofile
+highlight ColorColumn ctermbg=grey
+highlight Search cterm=NONE ctermbg=blue ctermfg=grey
+imap <C-e> <Esc>A
+imap <C-a> <Esc>I
+
+nnoremap <cr> i<cr><Esc>
+nnoremap <cr><cr> o<Esc>
+nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <C-l> :Files<CR>
+nnoremap <C-p> :YcmCompleter FixIt<CR>
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :noh <Bar> :unlet _s <CR>
+nmap <C-_> <Plug>NERDCommenterComment
+vmap <C-_> <Plug>NERDCommenterComment
+nmap <C-t> <Plug>NERDCommenterUncomment
+vmap <C-t> <Plug>NERDCommenterUncomment
+nmap <C-y> <Plug>NERDCommenterAltDelims
+nmap <F8> :TagbarOpenAutoClose<CR>
+nmap <F7> :%s/\n *{$/{/<CR>

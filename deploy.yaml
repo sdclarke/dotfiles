@@ -1,0 +1,21 @@
+- hosts: localhost
+
+  tasks:
+  - name: Upgrade
+    become: yes
+    community.general.pacman:
+      update_cache: True
+      upgrade: True
+
+  - name: Install packages
+    become: yes
+    community.general.pacman:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - chromium
+      - deepin-wayland
+      - flatpak
+      - nvim
+      - yay
+      - zsh

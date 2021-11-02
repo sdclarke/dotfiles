@@ -1,0 +1,11 @@
+[user]
+	name = Scott Clarke
+	email = sdclarke123@gmail.com
+[core]
+	editor = nvim
+[color]
+	ui = auto
+	status = auto
+	branch = auto
+[init]
+	defaultBranch = master
