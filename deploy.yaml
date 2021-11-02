@@ -16,6 +16,18 @@
       - chromium
       - deepin-wayland
       - flatpak
-      - nvim
+      - git
+      - neovim
+      - rsync
+      - tmux
       - yay
       - zsh
+
+  - name: Install yay packages
+    become: yes
+    yay:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - sway-git
+      - waybar-git
