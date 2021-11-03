@@ -10,24 +10,90 @@
   - name: Install packages
     become: yes
     community.general.pacman:
-      name: "{{ item }}"
-      state: present
-    loop:
+      name:
+      - alacritty
+      - base-devel
       - chromium
       - deepin-wayland
       - flatpak
       - git
       - neovim
+      - powerline-fonts
+      - python
+      - python-pip
       - rsync
       - tmux
-      - yay
       - zsh
+      state: present
 
-  - name: Install yay packages
+  - name: Clone yay
+    git:
+      repo: https://aur.archlinux.org/yay.git
+      dest: ~/yay
+
+  - name: Install yay
+    command: makepkg -si --noconfirm
+    args:
+      chdir: ~/yay
+
+  - name: Install AUR packages
     become: yes
     yay:
-      name: "{{ item }}"
-      state: present
-    loop:
+      name:
       - sway-git
       - waybar-git
+      state: present
+
+  - name: Install pynvim
+    pip:
+      name: pynvim
+      state: present
+
+  - name: Create .config dir
+    file:
+      name: ~/.config
+      state: directory
+
+  - name: Copy config files to .config
+    synchronize:
+      src: ./config
+      dest: ~/.config/
+
+  - name: Copy home dir files
+    synchronize:
+      src: ./home
+      dest: ~/
+
+  - name: Create Pictures dir
+    file:
+      name: ~/Pictures
+      state: directory
+
+  - name: Copy backgroud picture
+    synchronize:
+      src: ./Pictures/Lighthouse.png
+      dest: ~/Pictures
+
+  - name: Install vim-plug
+    command:
+        cmd: |
+          sh -c 'curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      changed_when: False
+
+  - name: Check if .oh-my-zsh exists
+    stat:
+      path: "~/.oh-my-zsh"
+    register: ohmyzsh
+    
+  - name: Get Oh-My-Zsh Install script
+    get_url:
+      url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+      dest: .
+      mode: 0755
+    when: not ohmyzsh.stat.exists
+    
+  - name: Install Oh-My-Zsh
+    script:
+      cmd: "./install.sh"
+    when: not ohmyzsh.stat.exists

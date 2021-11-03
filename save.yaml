@@ -5,23 +5,27 @@
     file:
       name: ./config
       state: directory
+
   - name: Copy config files
     synchronize:
-      src: /home/scott/.config/{{ item }}
+      src: ~/.config/{{ item }}
       dest: ./config
     with_items:
+      - alacritty
+      - i3
       - nvim
+      - polybar
       - sway
       - waybar
-      - i3
-      - polybar
+
   - name: Create home dir
     file:
       name: ./home
       state: directory
+
   - name: Copy home dir files
     synchronize:
-      src: /home/scott/{{ item }}
+      src: ~/{{ item }}
       dest: ./home
     with_items:
       - .fehbg
@@ -30,11 +34,13 @@
       - .tmux.conf
       - .zshrc
       - .zprofile
+
   - name: Make Pictures dir
     file:
       name: ./Pictures
       state: directory
+
   - name: Copy background picture
     synchronize:
-      src: /home/scott/Pictures/Lighthouse.png
+      src: ~/Pictures/Lighthouse.png
       dest: ./Pictures
