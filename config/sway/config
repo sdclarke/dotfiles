@@ -73,7 +73,7 @@ input * {
 # Basics:
 #
 # start a terminal
-bindsym Control+mod1+t exec --no-startup-id st
+bindsym Control+mod1+t exec --no-startup-id alacritty
 
 # start chromium
 bindsym Control+mod1+w exec --no-startup-id chromium
@@ -286,6 +286,6 @@ bindsym $mod+r mode "resize"
 #}
 
 exec --no-startup-id waybar
-exec --no-startup-id st
+exec --no-startup-id alacritty
 
 include /etc/sway/config.d/*
