@@ -2,6 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: Roboto, Helvetica, Arial, sans-serif;
+  /*font-family: DejaVu Sans Mono, Roboto, Helvetica, Arial, sans-serif;*/
   font-size: 13px;
   min-height: 0;
 }
@@ -23,8 +24,16 @@ window#waybar {
   text-shadow: inherit;
 }
 
+#workspaces button.visible {
+  border-bottom: 3px solid green;
+}
+
 #workspaces button.focused {
   border-bottom: 3px solid blue;
+}
+
+#window {
+  color: white;
 }
 
 #mode {
@@ -90,7 +99,7 @@ window#waybar {
   color: grey;
 }
 
-#custom-spotify {
+#disk {
   color: white;
 }
 

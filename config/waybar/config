@@ -1,116 +1,57 @@
 [{
-    // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar at the bottom of your screen
-    "output": "eDP-1",
+    "output": ["eDP-1", "DP-5", "DP-6", "DP-2", "HDMI-A-1"],
     "height": 28, // Waybar height
-    // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode"],//, "custom/spotify"],
-    // "modules-center": ["sway/window"],
-    "modules-right": ["memory", "cpu", "pulseaudio", "custom/backlight", "network", "custom/vpn", "clock", "tray"],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["memory", "cpu", "disk", "pulseaudio", "network", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
         "interval": 1,
-        "format": "{:%H:%M}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d/%m/%Y %H:%M}",
+        "format": "{:%Y-%m-%d %H:%M}"
     },
     "cpu": {
-        "format": "CPU: {usage}%"
+        "format": "CPU: {usage}%",
+        "interval": 5
     },
     "memory": {
-        "format": "Mem: {}%"
+        "format": "Mem: {percentage}%",
+        "interval": 5
     },
     "battery": {
         "bat": "BAT0",
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}%",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "Bat: {capacity}%"
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
-        "interface": "wlp1s0", // (Optional) To force the use of this interface
+        /*"interface": "enp0s25", // (Optional) To force the use of this interface*/
         "interval": 5,
         "format-wifi": "{essid} ({signalStrength}%)",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "format-ethernet": "{ipaddr}",
         "format-disconnected": "Disconnected"
     },
     "pulseaudio": {
-        //"scroll-step": 1,
         "format": "Vol: {volume}%",
         "format-bluetooth": "{volume}%",
         "format-muted": "(Muted) {volume}%",
-        "format-icons": {
-            "headphones": "",
-            "handsfree": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
-        },
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     },
-    "custom/spotify": {
-        "format": "{}",
-        "interval": 30,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
-        "exec-if": "pgrep spotify"
-    },
-    "custom/vpn": {
-      "format": "{}",
-      "exec": "echo VPN",
-      "exec-if": "pgrep -x openvpn",
-      "interval": 5
-    },
-    "custom/backlight": {
-      "format": "{}%",
-      "exec": "light | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}'",
-      "interval": 1,
-      "on-scroll-down": "light -U 1",
-      "on-scroll-up": "light -A 1",
-      "on-click": "light -S 5"
+    "disk": {
+      "interval": 30,
+      "format": "{used}/{total} Used",
+      "path": "/"
     }
-},
-{
-  "position": "bottom",
-  "output": "HDMI-A-1",
-  "height": 27,
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-right": ["clock"],
-
-  "clock": {
-    "interval": 1,
-    "format": "{:%H:%M}",
-    "format-alt": "{:%Y-%m-%d}"
-  }
 }]

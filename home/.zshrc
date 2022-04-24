@@ -2,13 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/scott/.oh-my-zsh"
+export ZSH="/home/scottclarke/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="agnoster"
+SOLARIZED_THEME="light"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -50,7 +51,7 @@ ZSH_THEME="agnoster"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -68,8 +69,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git flatpak docker golang history-substring-search ssh-agent pip rust)
-zstyle :omz:plugins:ssh-agent identities id_rsa.codethink # id_rsa
+plugins=(git fzf zsh-syntax-highlighting history-substring-search colored-man-pages colorize pip golang docker docker-compose per-directory-history rust pass)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,6 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -98,9 +99,40 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle :compinstall filename '/home/scottclarke/.zshrc'
 
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach -t default || tmux new -s default
-fi
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+#if [ -f ~/buildstream/src/buildstream/data/bst ]; then
+  #source ~/buildstream/src/buildstream/data/bst
+#elif [ -f ~/buildstream/buildstream/data/bst ]; then
+  #source ~/buildstream/buildstream/data/bst
+#fi
+
+fpath=(~/zsh-completions/src/ $fpath)
 
 alias vim='nvim'
+alias ag='ag --hidden --ignore .git'
+alias rg='rg --hidden -S --max-columns=150 --max-columns-preview -g '!.git''
+alias sudo='sudo '
+
+export GOPATH=~/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/bin
+export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g "" -l'
+export FZF_CTRL_T_COMMAND='rg --hidden --ignore .git -g "" -l'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+test -r ~/.dir_colours && eval $(dircolors ~/.dir_colours)

@@ -1,18 +1,7 @@
 [user]
-	email = sdclarke123@gmail.com
 	name = Scott Clarke
-[core]
-	editor = nvim
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+	email = scott.clarke@codethink.co.uk
+[alias]
+	logs = log --all --oneline --graph --decorate
 [pull]
-	rebase = true
-[fetch]
-	prune = true
-[diff]
-	colorMoved = zebra
-[init]
-	defaultBranch = master
+	ff = only
