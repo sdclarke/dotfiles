@@ -68,7 +68,8 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git history-substring-search fzf z kubectl ssh-agent bazel golang)
+plugins=(git flatpak docker golang history-substring-search ssh-agent pip rust)
+zstyle :omz:plugins:ssh-agent identities id_rsa.codethink # id_rsa
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,20 +98,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-case $(tty) in
-/dev/tty1)
-  ;;
-*)
+
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
   tmux attach -t default || tmux new -s default
 fi
-;;
-esac
+
 alias vim='nvim'
-alias duckgame='.var/app/com.valvesoftware.Steam/data/Steam/steamapps/common/DuckGame/DuckGame.sh'
-export GOPATH=/home/scott/go
-export SOLARIZED_THEME='dark'
-export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
-alias protontricks-flat='flatpak run --command=protontricks com.valvesoftware.Steam --no-runtime'

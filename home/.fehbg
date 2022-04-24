@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/scott/Pictures/Lighthouse.png' 
+feh --no-fehbg --bg-fill '/home/scott/Pictures/Lighthouse.png' 
