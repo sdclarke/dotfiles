@@ -23,6 +23,7 @@
       - python-pip
       - rsync
       - tmux
+      - wl-clipboard
       - zsh
       state: present
 
