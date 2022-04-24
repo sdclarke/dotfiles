@@ -12,9 +12,7 @@
       dest: ./config
     with_items:
       - alacritty
-      - i3
       - nvim
-      - polybar
       - sway
       - waybar
 
@@ -28,9 +26,7 @@
       src: ~/{{ item }}
       dest: ./home
     with_items:
-      - .fehbg
       - .gitconfig
-      - .nvim/colors
       - .tmux.conf
       - .zshrc
       - .zprofile
