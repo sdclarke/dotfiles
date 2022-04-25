@@ -9,19 +9,10 @@ Plug 'dracula/vim', {'as': 'dracula'}
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-<<<<<<< Updated upstream
-Plug 'maralla/completor.vim'
-
-Plug 'google/vim-jsonnet'
-
-Plug 'junegunn/fzf', {'on': 'Files' }
-Plug 'junegunn/fzf.vim', {'on': 'Files' }
-=======
 Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
->>>>>>> Stashed changes
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -39,11 +30,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
-<<<<<<< Updated upstream
-=======
 Plug 'scrooloose/nerdcommenter'
 
->>>>>>> Stashed changes
 Plug 'tmux-plugins/vim-tmux'
 
 Plug 'tpope/vim-fugitive'
@@ -53,7 +41,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'Yggdroot/indentline'
-<<<<<<< Updated upstream
 
 Plug 'rust-lang/rust.vim'
 
@@ -64,15 +51,6 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab number
 set clipboard^=unnamed,unnamedplus laststatus=2 noshowmode undofile
 set background=dark incsearch modeline shortmess+=c completeopt-=preview
 set nofoldenable
-=======
-call plug#end()
-"source ~/.vimrc
-
-
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab number
-set clipboard^=unnamed,unnamedplus laststatus=2 noshowmode undofile
-set background=dark incsearch modeline shortmess+=c completeopt-=preview
-set conceallevel=0 completeopt=menu,menuone,noselect
 
 lua <<EOF
 -- Add additional capabilities supported by nvim-cmp
@@ -154,7 +132,6 @@ cmp.setup.cmdline('/', {
 EOF
 
 :lua require('rust-tools').setup({})
->>>>>>> Stashed changes
 
 highlight ColorColumn ctermbg=grey
 highlight Search cterm=NONE ctermbg=blue ctermfg=grey
@@ -169,25 +146,15 @@ let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
-<<<<<<< Updated upstream
-"let g:deoplete#enable_at_startup = 1
-=======
 let loaded_spellfile_plugin = 1
->>>>>>> Stashed changes
 let g:rustfmt_autosave = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_imports_mode = 'goimports'
 let mapleader = " "
 
-:lua require('rust-tools').setup({})
-
 imap <C-e> <Esc>A
 imap <C-a> <Esc>I
-<<<<<<< Updated upstream
-inoremap <silent><expr> <tab> pumvisible() ? "\<C-n>" : "\<tab>"
-=======
->>>>>>> Stashed changes
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -205,7 +172,7 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 
-source /usr/share/doc/fzf/examples/fzf.vim
+"source /usr/share/doc/fzf/examples/fzf.vim
 
 set tabpagemax=100
 set tw=72
