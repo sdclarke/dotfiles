@@ -100,6 +100,7 @@ export EDITOR='nvim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' rehash true
 zstyle :compinstall filename '/home/scottclarke/.zshrc'
 
 autoload -Uz compinit
@@ -127,8 +128,6 @@ alias ag='ag --hidden --ignore .git'
 alias rg='rg --hidden -S --max-columns=150 --max-columns-preview -g '!.git''
 alias sudo='sudo '
 
-export GOPATH=~/go
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin:$HOME/.local/bin:$HOME/bin
 export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g "" -l'
 export FZF_CTRL_T_COMMAND='rg --hidden --ignore .git -g "" -l'
 

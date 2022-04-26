@@ -28,6 +28,7 @@
     with_items:
       - .gitconfig
       - .tmux.conf
+      - .zshenv
       - .zshrc
       - .zprofile
 

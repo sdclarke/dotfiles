@@ -5,3 +5,10 @@
 	logs = log --all --oneline --graph --decorate
 [pull]
 	ff = only
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[oh-my-zsh]
+	hide-status = 0
