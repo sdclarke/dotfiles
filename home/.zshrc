@@ -132,6 +132,3 @@ export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -g "" -l'
 export FZF_CTRL_T_COMMAND='rg --hidden --ignore .git -g "" -l'
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-
-test -r ~/.dir_colours && eval $(dircolors ~/.dir_colours)

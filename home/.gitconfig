@@ -12,3 +12,5 @@
 	smudge = git-lfs smudge -- %f
 [oh-my-zsh]
 	hide-status = 0
+[init]
+	defaultBranch = main

@@ -1,12 +1,13 @@
 return require('packer').startup(function()
-  -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   use {'dracula/vim', as = 'dracula'}
 
-  use 'airblade/vim-gitgutter'
+  use 'nvim-telescope/telescope-ui-select.nvim'
+  --use 'airblade/vim-gitgutter'
 
-  use { 'fatih/vim-go',  run = ':GoUpdateBinaries' }
+  --use { 'fatih/vim-go',  run = ':GoUpdateBinaries' }
+  use 'ray-x/go.nvim'
 
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
@@ -34,10 +35,17 @@ return require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
 
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  --use 'vim-airline/vim-airline'
+  --use 'vim-airline/vim-airline-themes'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use 'arkav/lualine-lsp-progress'
 
-  use 'Yggdroot/indentline'
+  use 'lukas-reineke/indent-blankline.nvim'
+
+  use 'lewis6991/gitsigns.nvim'
 
   use 'rust-lang/rust.vim'
 end)
