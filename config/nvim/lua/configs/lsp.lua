@@ -5,20 +5,20 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 local lspconfig = require('lspconfig')
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'gopls' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'yamlls' }
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
+  lspconfig[lsp].setup({
     capabilities = capabilities,
-  }
+  })
 end
 
 -- luasnip setup
-local luasnip = require 'luasnip'
+local luasnip = require('luasnip')
+require('luasnip/loaders/from_vscode').lazy_load()
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
-cmp.setup {
+local cmp = require('cmp')
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -28,10 +28,10 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<CR>'] = cmp.mapping.confirm {
+    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
+    }),
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -57,20 +57,20 @@ cmp.setup {
     { name = 'path' },
     { name = 'buffer' },
   },
-}
+})
 
 cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
-      { name = 'cmdline' }
-    })
-  })
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' },
+  }, {
+    { name = 'cmdline' },
+  }),
+})
 
 cmp.setup.cmdline('/', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = 'buffer' }
-    }
-  })
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' },
+  },
+})

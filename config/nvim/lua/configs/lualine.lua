@@ -1,16 +1,16 @@
-require('lualine').setup{
+require('lualine').setup({
   options = {
-    theme = 'dracula'
+    theme = 'dracula',
   },
   sections = {
-    lualine_c = {'filename', 'lsp_progress'},
+    lualine_c = { 'filename', 'lsp_progress' },
   },
   tabline = {
-    lualine_a = {'buffers'},
+    lualine_a = { 'buffers' },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {'tabs'}
+    lualine_z = { 'tabs' },
   },
-}
+})

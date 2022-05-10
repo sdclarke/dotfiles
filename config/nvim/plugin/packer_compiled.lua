@@ -69,6 +69,12 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0" },
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -99,20 +105,50 @@ _G.packer_plugins = {
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  dracula = {
+  ["dracula.nvim"] = {
     loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/dracula",
-    url = "https://github.com/dracula/vim"
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
   },
   ["float-preview.nvim"] = {
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/float-preview.nvim",
     url = "https://github.com/ncm2/float-preview.nvim"
   },
-  nerdcommenter = {
+  ["friendly-snippets"] = {
     loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/nerdcommenter",
-    url = "https://github.com/scrooloose/nerdcommenter"
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["go.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/go.nvim",
+    url = "https://github.com/ray-x/go.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["lualine-lsp-progress"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/lualine-lsp-progress",
+    url = "https://github.com/arkav/lualine-lsp-progress"
+  },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -129,6 +165,11 @@ _G.packer_plugins = {
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -140,6 +181,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["rust-tools.nvim"] = {
+    config = { "\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15rust-tools\frequire\0" },
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/sdclarke/rust-tools.nvim"
@@ -149,35 +191,26 @@ _G.packer_plugins = {
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/rust.vim",
     url = "https://github.com/rust-lang/rust.vim"
   },
+  sniprun = {
+    config = { "\27LJ\2\nu\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fdisplay\1\0\0\1\3\0\0\18VirtualTextOk\27LongTempFloatingWindow\nsetup\fsniprun\frequire\0" },
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/sniprun",
+    url = "https://github.com/michaelb/sniprun"
+  },
+  ["telescope-ui-select.nvim"] = {
+    loaded = true,
+    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
+    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-airline"] = {
-    loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/vim-airline",
-    url = "https://github.com/vim-airline/vim-airline"
-  },
-  ["vim-airline-themes"] = {
-    loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
-    url = "https://github.com/vim-airline/vim-airline-themes"
-  },
   ["vim-fugitive"] = {
     loaded = true,
     path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-gitgutter"] = {
-    loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
-    url = "https://github.com/airblade/vim-gitgutter"
-  },
-  ["vim-go"] = {
-    loaded = true,
-    path = "/home/scottclarke/.local/share/nvim/site/pack/packer/start/vim-go",
-    url = "https://github.com/fatih/vim-go"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -192,6 +225,18 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: rust-tools.nvim
+time([[Config for rust-tools.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15rust-tools\frequire\0", "config", "rust-tools.nvim")
+time([[Config for rust-tools.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: sniprun
+time([[Config for sniprun]], true)
+try_loadstring("\27LJ\2\nu\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\fdisplay\1\0\0\1\3\0\0\18VirtualTextOk\27LongTempFloatingWindow\nsetup\fsniprun\frequire\0", "config", "sniprun")
+time([[Config for sniprun]], false)
 if should_profile then save_profiles() end
 
 end)
